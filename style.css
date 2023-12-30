@@ -1,0 +1,17 @@
+body {
+    margin: 0;
+}
+
+#bg-image {
+    width: 100%;
+    height: 100vh;
+    background-image: url("resources/bg-image.jpg");
+    background-size: cover;
+    background-repeat: repeat-x;
+}
+
+#boy-charactor {
+    height: 200px;
+    margin-top: 55vh;
+    position: absolute;
+}
