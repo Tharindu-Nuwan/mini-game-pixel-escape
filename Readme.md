@@ -14,7 +14,7 @@ This is an exciting and visually charming mini-game that combines HTML, CSS, and
 ### How to Play
 
 - Frist press the "Enter" key to start the Running.
-- When an barrier comes towards boy, use "Space Bar" to jump over them.
+- When a barrier comes towards boy, use "Space Bar" to jump over them.
 - If you hit on barrier, Game Over.
 - If you score 950 points, You will win.
 - Enjoy the Game!
