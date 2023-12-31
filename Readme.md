@@ -10,8 +10,19 @@ This is an exciting and visually charming mini-game that combines HTML, CSS, and
 ![Screen Shot 4](resources/ss/4.png)
 ![Screen Shot 5](resources/ss/5.png)
 
+---
+### How to Play
+
+- Frist press the "Enter" key to start the Running.
+- When an barrier comes towards boy, use "Space Bar" to jump over them.
+- If you hit on barrier, Game Over.
+- If you score 950 points, You will win.
+- Enjoy the Game!
+---
+
+
 ## Version
-1.0.0
+v1.0.0
 
 ## License
 This product is licensed under [MIT License](License.txt). <br/>
