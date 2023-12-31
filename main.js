@@ -49,7 +49,11 @@ function moveBackground() {
   bgImgElm.style.backgroundPositionX = backgroundPosition + "px";
 
   score = score + 1;
-  document.getElementById('score').innerHTML = score;
+  document.getElementById("score").innerHTML = score;
+
+  if (score == 950) {
+    document.getElementById("win").style.visibility = "visible";
+  }
 }
 
 var boyMarginTop = 330;
@@ -106,16 +110,16 @@ function createBariers() {
 }
 
 function boydeadAnimation() {
-    deadImageNumber = deadImageNumber + 1;
+  deadImageNumber = deadImageNumber + 1;
 
-    if (deadImageNumber == 11) {
-        deadImageNumber = 10;
+  if (deadImageNumber == 11) {
+    deadImageNumber = 10;
 
-        document.getElementById('game-over').style.visibility = 'visible';
-        document.getElementById('final-score').innerHTML = score;
-    }
+    document.getElementById("game-over").style.visibility = "visible";
+    document.getElementById("final-score").innerHTML = score;
+  }
 
-    boyElm.src = "resources/charactor/Dead (" + deadImageNumber + ").png";
+  boyElm.src = "resources/charactor/Dead (" + deadImageNumber + ").png";
 }
 
 function barrierAnimation() {
@@ -126,24 +130,23 @@ function barrierAnimation() {
     barrier.style.marginLeft = newMarginLeft + "px";
 
     if (newMarginLeft >= -50 && newMarginLeft <= 100) {
-        if (boyMarginTop > 300) {
-            clearInterval(barrierAnimationId);
+      if (boyMarginTop > 300) {
+        clearInterval(barrierAnimationId);
 
-            clearInterval(runAnimationNumber);
-            runAnimationNumber = -1;
-            
-            clearInterval(jumpAnimationNumber);
-            jumpAnimationNumber = -1;
-            
-            clearInterval(moveBgAnimId);
-            moveBgAnimId = -1;
+        clearInterval(runAnimationNumber);
+        runAnimationNumber = -1;
 
-            deadAnimationNumber = setInterval(boydeadAnimation, 100)
-        }
+        clearInterval(jumpAnimationNumber);
+        jumpAnimationNumber = -1;
+
+        clearInterval(moveBgAnimId);
+        moveBgAnimId = -1;
+
+        deadAnimationNumber = setInterval(boydeadAnimation, 100);
+      }
     }
   }
 }
-
 
 function keyCheck(event) {
   var keyCode = event.which;
@@ -174,5 +177,5 @@ function keyCheck(event) {
 }
 
 function reload() {
-    location.reload();
+  location.reload();
 }
