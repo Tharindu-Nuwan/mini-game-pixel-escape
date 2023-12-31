@@ -58,6 +58,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    font-family: 'Luckiest Guy', cursive;
     visibility: hidden;
 }
 
@@ -89,5 +90,6 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    font-family: 'Luckiest Guy', cursive;
     visibility: hidden;
 }
