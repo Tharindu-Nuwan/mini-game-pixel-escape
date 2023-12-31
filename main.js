@@ -3,9 +3,11 @@ var bgImgElm = document.getElementById("bg-image");
 var idleImageNumber = 1;
 var runImageNumber = 1;
 var jumpImageNumber = 1;
+var deadImageNumber = 1;
 var idleAnimationNumber = 0;
 var runAnimationNumber = 0;
 var jumpAnimationNumber = 0;
+var deadAnimationNumber = 0;
 var barrierAnimationId = 0;
 
 var moveBgAnimId = 0;
@@ -90,49 +92,76 @@ function createBariers() {
     barrierElm.id = "barrier" + i;
 
     if (i < 10) {
-        barrierMarginLeft = barrierMarginLeft + 1000; 
+      barrierMarginLeft = barrierMarginLeft + 1000;
     }
 
     if (i >= 11) {
-        barrierMarginLeft = barrierMarginLeft + 500; 
+      barrierMarginLeft = barrierMarginLeft + 500;
     }
   }
 }
 
+function boydeadAnimation() {
+    deadImageNumber = deadImageNumber + 1;
+
+    if (deadImageNumber == 11) {
+        deadImageNumber = 10;
+    }
+
+    boyElm.src = "resources/charactor/Dead (" + deadImageNumber + ").png";
+}
+
 function barrierAnimation() {
-    for (let i = 0; i < 20; i++) {
-        var barrier = document.getElementById("barrier" + i);
-        var currentMarginLeft = getComputedStyle(barrier).marginLeft;
-        var newMarginLeft = parseInt(currentMarginLeft) - 15;
-        barrier.style.marginLeft = newMarginLeft + "px";
+  for (let i = 0; i < 20; i++) {
+    var barrier = document.getElementById("barrier" + i);
+    var currentMarginLeft = getComputedStyle(barrier).marginLeft;
+    var newMarginLeft = parseInt(currentMarginLeft) - 20;
+    barrier.style.marginLeft = newMarginLeft + "px";
+
+    if (newMarginLeft >= -50 && newMarginLeft <= 100) {
+        if (boyMarginTop > 300) {
+            clearInterval(barrierAnimationId);
+
+            clearInterval(runAnimationNumber);
+            runAnimationNumber = -1;
+            
+            clearInterval(jumpAnimationNumber);
+            jumpAnimationNumber = -1;
+            
+            clearInterval(moveBgAnimId);
+            moveBgAnimId = -1;
+
+            deadAnimationNumber = setInterval(boydeadAnimation, 100)
+        }
     }
   }
+}
 
 
 function keyCheck(event) {
-    var keyCode = event.which;
-  
-    if (keyCode == 13) {
-      if (runAnimationNumber == 0) {
-        runAnimationStart();
-      }
-      if (moveBgAnimId == 0) {
-        moveBgAnimId = setInterval(moveBackground, 40);
-      }
-      if (barrierAnimationId == 0) {
-          barrierAnimationId = setInterval(barrierAnimation, 40);
-      }
+  var keyCode = event.which;
+
+  if (keyCode == 13) {
+    if (runAnimationNumber == 0) {
+      runAnimationStart();
     }
-  
-    if (keyCode == 32) {
-      if (jumpAnimationNumber == 0) {
-        jumpAnimationStart();
-      }
-      if (moveBgAnimId == 0) {
-        moveBgAnimId = setInterval(moveBackground, 23);
-      }
-      if (barrierAnimationId == 0) {
-          barrierAnimationId = setInterval(barrierAnimation, 100);
-      }
+    if (moveBgAnimId == 0) {
+      moveBgAnimId = setInterval(moveBackground, 60);
+    }
+    if (barrierAnimationId == 0) {
+      barrierAnimationId = setInterval(barrierAnimation, 60);
     }
   }
+
+  if (keyCode == 32) {
+    if (jumpAnimationNumber == 0) {
+      jumpAnimationStart();
+    }
+    if (moveBgAnimId == 0) {
+      moveBgAnimId = setInterval(moveBackground, 60);
+    }
+    if (barrierAnimationId == 0) {
+      barrierAnimationId = setInterval(barrierAnimation, 60);
+    }
+  }
+}
