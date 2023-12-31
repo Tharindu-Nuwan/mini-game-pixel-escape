@@ -14,8 +14,7 @@ body {
 
 #boy-charactor {
     height: 180px;
-    margin-top: 355px; 
-    
+    margin-top: 355px;
     position: absolute;
 }
 
@@ -27,4 +26,25 @@ body {
     background-repeat: no-repeat;
     position: absolute;
     margin-top: 440px;
+}
+
+.score {
+    font-family: 'Bungee Spice', sans-serif;
+    font-size: 50px;
+    font-weight: bold;
+    position: absolute;
+    top: 80px;
+    left: 125px;
+}
+
+#score-board {
+    width: 350px;
+    height: 350px;
+    font-family: 'Luckiest Guy', cursive;
+    color: brown;
+    font-size: 18px;
+    background-image: url("resources/score-board.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
 }

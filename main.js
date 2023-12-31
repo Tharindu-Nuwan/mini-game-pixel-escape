@@ -11,6 +11,7 @@ var deadAnimationNumber = 0;
 var barrierAnimationId = 0;
 
 var moveBgAnimId = 0;
+var score = 0;
 
 function idleAnimation() {
   idleImageNumber = idleImageNumber + 1;
@@ -46,6 +47,9 @@ var backgroundPosition = 0;
 function moveBackground() {
   backgroundPosition = backgroundPosition - 10;
   bgImgElm.style.backgroundPositionX = backgroundPosition + "px";
+
+  score = score + 1;
+  document.getElementById('score').innerHTML = score;
 }
 
 var boyMarginTop = 330;
