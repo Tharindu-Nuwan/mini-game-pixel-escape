@@ -40,11 +40,42 @@ body {
 #score-board {
     width: 350px;
     height: 350px;
-    font-family: 'Luckiest Guy', cursive;
-    color: brown;
     font-size: 18px;
     background-image: url("resources/score-board.png");
     background-size: contain;
     background-repeat: no-repeat;
     position: absolute;
+}
+
+#game-over {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    background-image: url("resources/game-over.jpg");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Luckiest Guy', cursive;
+    color: blueviolet;
+    visibility: hidden;
+}
+
+#btnTryAgain {
+    background-image: linear-gradient(90deg, blueviolet 25%, red 75%);
+    border-radius: 20px;
+    width: 150px;
+    height: 30px;
+    border: none;
+    font-weight: bold;
+    color: aliceblue;
+}
+
+#btnTryAgain:hover {
+    border: 2px solid blue;
+    box-shadow: gray;
+    cursor: pointer;
+    background-image: linear-gradient(90deg, red 25%,blueviolet 75%);
 }

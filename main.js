@@ -110,6 +110,9 @@ function boydeadAnimation() {
 
     if (deadImageNumber == 11) {
         deadImageNumber = 10;
+
+        document.getElementById('game-over').style.visibility = 'visible';
+        document.getElementById('final-score').innerHTML = score;
     }
 
     boyElm.src = "resources/charactor/Dead (" + deadImageNumber + ").png";
@@ -168,4 +171,8 @@ function keyCheck(event) {
       barrierAnimationId = setInterval(barrierAnimation, 60);
     }
   }
+}
+
+function reload() {
+    location.reload();
 }
