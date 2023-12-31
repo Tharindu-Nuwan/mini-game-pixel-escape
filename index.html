@@ -5,13 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mini-Game</title>
     <link rel="stylesheet" href="style.css">
+    <script defer src="main.js"></script>
 </head>
-<body onload="idleAnimationStart()" onkeypress="keyCheck(event)">
+<body onload="idleAnimationStart(), createBariers()" onkeypress="keyCheck(event)">
     <div id="bg-image">
         <img id="boy-charactor" src="resources/charactor/Idle (1).png">
     </div>
-
-    <script src="main.js"></script>
-
 </body>
 </html>
